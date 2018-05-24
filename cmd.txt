@@ -6,3 +6,6 @@ git add  添加
 git commit -m 提交
 git diff 查看修改
 git log 查看历史纪录
+cat flie 查看文件内容
+git reset --hard HEAD^ 回退到上一个版本
+git reset --hard 版本号  回到指定的版本
