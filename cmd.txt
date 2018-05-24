@@ -2,8 +2,8 @@ git config --global user.name "yliner"
 git config --global user.email "136351732@qq.com" 给所有仓库指定用户名和email地址
 git init 初始化仓库
 git status 查看当前仓库状态
-git add  添加
-git commit -m 提交
+git add  添加文件到暂存区
+git commit -m 提交暂存区的文件到当前分支
 git diff 查看修改
 git log 查看历史纪录
 cat flie 查看文件内容
