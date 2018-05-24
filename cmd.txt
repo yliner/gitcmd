@@ -1,0 +1,5 @@
+git config --global user.name "yliner" 
+git config --global user.email "136351732@qq.com" 给所有仓库指定用户名和email地址
+git init 初始化仓库
+git add
+git commit -m
