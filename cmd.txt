@@ -15,3 +15,9 @@ git diff HEAD 查看工作区和版本库最新版本的区别
 git checkout -- file 没add之前，撤销修改或删除
 git reset HEAD file add之后撤销修改，再执行上一布
 git rm file  /  git commit -m  先删除再提交
+
+用户主目录添加.ssh文件
+登陆github->settings->SSH->添加密钥->复制.ssh里面的公共密钥
+
+git remote add origin git@github.com:yliner/gitcmd.git 建立本地仓库和GitHub仓库的关联
+git push -u origin master 推送本地内容到GitHub
