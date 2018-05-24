@@ -12,5 +12,6 @@ git reset --hard 版本号  回到指定的版本
 cat file 查看文件内容
 git reflog 可查看每一次的命令，找到想回退的版本
 git diff HEAD 查看工作区和版本库最新版本的区别
-git checkout -- file 没add之前，撤销修改
+git checkout -- file 没add之前，撤销修改或删除
 git reset HEAD file add之后撤销修改，再执行上一布
+git rm file  /  git commit -m  先删除再提交
