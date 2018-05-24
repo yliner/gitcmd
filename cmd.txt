@@ -1,23 +1,59 @@
-git config --global user.name "yliner" 
-git config --global user.email "136351732@qq.com" 给所有仓库指定用户名和email地址
-git init 初始化仓库
-git status 查看当前仓库状态
-git add  添加文件到暂存区
-git commit -m 提交暂存区的文件到当前分支
-git diff 查看修改
-git log 查看历史纪录
-cat flie 查看文件内容
-git reset --hard HEAD^ 回退到上一个版本
-git reset --hard 版本号  回到指定的版本
-cat file 查看文件内容
-git reflog 可查看每一次的命令，找到想回退的版本
-git diff HEAD 查看工作区和版本库最新版本的区别
-git checkout -- file 没add之前，撤销修改或删除
-git reset HEAD file add之后撤销修改，再执行上一布
-git rm file  /  git commit -m  先删除再提交
+本地仓库（工作区和暂存区）命令：  
+    git config --global user.name "yliner" 
+    git config --global user.email "136351732@qq.com" 给所有仓库指定用户名和email地址
+    git init 初始化仓库
+    git status 查看当前仓库状态
+    git add  添加文件到暂存区
+    git commit -m 提交暂存区的文件到当前分支
+    git diff 查看修改
+    git log 查看历史纪录
+    cat flie 查看文件内容
+    git reset --hard HEAD^ 回退到上一个版本
+    git reset --hard 版本号  回到指定的版本
+    cat file 查看文件内容
+    git reflog 可查看每一次的命令，找到想回退的版本
+    git diff HEAD 查看工作区和版本库最新版本的区别
+    git checkout -- file 没add之前，撤销修改或删除
+    git reset HEAD file add之后撤销修改，再执行上一布
+    git rm file  /  git commit -m  先删除再提交
 
 用户主目录添加.ssh文件
 登陆github->settings->SSH->添加密钥->复制.ssh里面的公共密钥
 
-git remote add origin git@github.com:yliner/gitcmd.git 建立本地仓库和GitHub仓库的关联
-git push -u origin master 推送本地内容到GitHub
+本地仓库运行：
+    git remote add origin git@github.com:yliner/gitcmd.git 建立本地仓库和GitHub仓库的关联
+    git push -u origin master   推送本地内容到GitHub
+    git push origin master  推送最新修改
+
+    git clone git@github.com:yliner/gitSkills.git 克隆一个本地库
+
+
+分支：
+    git checkout -b dev 创建dev分支并切换到dev分支，相当于:
+	git branch dev
+	git checkout dev
+    git checkout -b dev origin/dev  创建远程origin的dev分支到本地
+    git branch 查看当前分支，会列出所有分支，当前分支有*号
+
+    git checkout master(分支名)   切换分支
+    git merge dev  合并指定分支dev到当前分支
+    git merge --no-ff -m "merge with no-ff" dev普通模式合并
+    加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
+
+注：当前分支下修改提交的内容只存在于当前分支，其他分支是看不到的
+
+解决冲突：
+    修改文件内冲突，然后再提交，再删除分支 (git log 可以查看分支合并情况，git log --graph可以看到分支合并图）
+
+多人协作的工作模式通常是这样：
+
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+如果合并有冲突，则解决冲突，并在本地提交；
+
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，
+用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
